@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+<body>
+   
+    <div class="main">
+
+        <div class="async" id="async"></div>
+
+       <div class="but"> <button id="start">Start</button>
+        
+        <button id="stop">Stop</button>
+    </div>
+    </div>
+
+    <script >
+    
+
+    const myfun=()=>{
+        const hex="0123456789ABCDEF"
+        let color='#'
+        for(let i=0; i<6; i++){
+            color+=hex[Math.floor(Math.random()*16)]
+        }
+        return color;
+
+    }
+
+        
+   let set;
+     const star=document.getElementById("start").addEventListener('click',function(){
+       if(!set){
+     set= setInterval(function(){
+        document.getElementById("async").style.backgroundColor=myfun();
+
+    },1000)}
+    console.log("start");
+
+
+    })
+
+    const but=document.getElementById("stop").addEventListener('click',function(){
+        clearInterval(set)
+        console.log("stopped");
+        set=null
+    })
+    </script>
+</body>
+</html>
